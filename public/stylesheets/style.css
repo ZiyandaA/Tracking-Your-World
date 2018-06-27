@@ -71,6 +71,11 @@ header {
   padding-right: 10px;
 }
 
+#trackers button {
+  color: white;
+  font-size: 18px;
+}
+
 #login-container {
   padding-right: 20px;
   padding-top: 20px;
@@ -130,7 +135,6 @@ th {
   text-align: center;
   text-decoration: none;
   background-color:#1461bf ;
-  height: 20px;
 }
 
 .add-inputs {
@@ -156,6 +160,26 @@ th {
   display: block;
   margin-bottom: 5px;
   margin-left: auto;
+}
+
+@media screen and (max-width: 1366px) and (min-width: 1024px) {
+  * {
+    font-size: 35px !important;
+  }
+
+  #information > span {
+    font-size: 55px !important;
+  }
+
+  .name-container {
+    width: 250px;
+  }
+  
+  #trackers button {
+    /*font-size: 20px !important;*/
+    margin-top: 0;
+    height: auto;
+  }
 }
 
 @media screen and (max-width: 1024px) {

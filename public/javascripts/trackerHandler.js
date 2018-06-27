@@ -53,7 +53,14 @@ $(document).ready(() => {
 
 function addInputs(id, elem) {
     console.log($(this).parent().attr("id"));
-    let trackerID = id || $(this).parent().parent().attr("id");
+    let trackerID = "";
+    if(typeof(id) === "string") {
+        trackerID = id;
+    }
+    else {
+        trackerID = $(this).parent().parent().attr("id");
+    }
+    console.log(id + " -- " + trackerID);
     if ($("#" + trackerID + "> input").css("display") === "none") {
 
         $("#" + trackerID + "> input").css("display", "block");
