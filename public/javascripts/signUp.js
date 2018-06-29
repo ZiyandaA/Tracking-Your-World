@@ -4,7 +4,7 @@ function onSignUp(e) {
     const password = $("#password").val();
     console.log(username);
     axios.defaults.withCredentials = true;
-    axios.post('http://localhost:3000/auth/signup', {
+    axios.post('/auth/signup', {
             username: username,
             password: password
         
