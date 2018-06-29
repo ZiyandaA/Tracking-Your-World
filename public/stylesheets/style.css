@@ -76,6 +76,10 @@ header {
   font-size: 18px;
 }
 
+#trackers button.confirm {
+  color: black;
+}
+
 #login-container {
   padding-right: 20px;
   padding-top: 20px;

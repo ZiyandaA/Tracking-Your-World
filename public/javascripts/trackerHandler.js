@@ -174,7 +174,7 @@ function fillTrackers(trackers) {
             <input class="target-input" style="display:none" placeholder="target" type="text">
             <input class="value-input" style="display:none" placeholder="value" type="text">
             <input class="tracker-target-input" style="display:none" type="hidden">
-            <button class="add-child" style="display:none">confirm</button>
+            <button class="add-child confirm" style="display:none">confirm</button>
             <table class="tracker-target-table">
                 <tr>
                     <th>name</th>
