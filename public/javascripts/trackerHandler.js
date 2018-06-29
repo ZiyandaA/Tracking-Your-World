@@ -1,12 +1,12 @@
 function getTrackers(id) {
-    return fetch('http://localhost:3000/users/' + id)
+    return fetch('/users/' + id)
         .then(data => {
             return data.json();
         })
 }
 
 function postTracker(id, name) {
-    return axios.post("http://localhost:3000/trackers", {
+    return axios.post("/trackers", {
         userID: id,
         name: name
     })
@@ -95,7 +95,7 @@ function onUpdateTracker() {
 function onDeleteTracker() {
    
     let trackerID = $(this).parent().parent().attr("id");
-    axios.delete("http://localhost:3000/trackers/" + trackerID) //localhost:3000/tracker/
+    axios.delete("/trackers/" + trackerID) //localhost:3000/tracker/
         .then(data => {
             $('#trackers').empty();
             return getTrackers(window.ID)
@@ -114,7 +114,7 @@ function addTrackerTarget() {
     const value = $("#" + trackerID + ">.value-input").val();
     const targetID = $("#" + trackerID + ">.tracker-target-input").val();
     console.log(name, target, value);
-    axios.post("http://localhost:3000/trackertargets", {
+    axios.post("/trackertargets", {
         trackerID: trackerID,
         name: name,
         target: target,
@@ -144,7 +144,7 @@ function showTrackerTargets() {
 
 
 function deleteTrackerTarget(id) {
-    axios.delete("http://localhost:3000/trackertargets/" + id) //localhost:3000/tracker/
+    axios.delete("trackertargets/" + id) //localhost:3000/tracker/
         .then(data => {
             $('#trackers').empty();
             return getTrackers(window.ID)

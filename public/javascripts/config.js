@@ -1,7 +1,7 @@
 $(document).ready(() => {
     
     axios.defaults.withCredentials = true;
-    axios.get('http://localhost:3000/find-me')
+     axios.get('/find-me')
         .then(data => {
             if (window.location.pathname === "/auth/signin" ||
                 window.location.pathname === "/auth/signup") {
@@ -20,9 +20,9 @@ $(document).ready(() => {
         })
         .catch(err => {
             console.log('error!', err)
-            $("#logout-container").css("display", "none");
-            console.log(window.location.pathname, 'this is the pathnams')
-            console.log(window.location.pathname !== "/auth/signin" && window.location.pathname !== "/auth/signup")
+             $("#logout-container").css("display", "none");
+             console.log(window.location.pathname, 'this is the pathnams')
+             console.log(window.location.pathname !== "/auth/signin" && window.location.pathname !== "/auth/signup")
             if (window.location.pathname !== "/auth/signin" && window.location.pathname !== "/auth/signup")
                 window.location.replace('/auth/signin');
         })

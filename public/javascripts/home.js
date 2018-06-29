@@ -2,7 +2,7 @@ $(document).ready(() => {
     console.log('im working')
     $("#logout").on("click", () => {
         axios.defaults.withCredentials = true;
-        axios.post("http://localhost:3000/auth/logout")
+        axios.post("/auth/logout")
         .then(data => {
             console.log(data);
             window.location.replace('/auth/signin');

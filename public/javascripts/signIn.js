@@ -5,7 +5,7 @@ function onSignIn(e) {
     const password = $("#password").val();
     console.log(username)
     axios.defaults.withCredentials = true;
-    axios.post('http://localhost:3000/auth/signin', {
+    axios.post('/auth/signin', {
             username: username,
             password: password
         
