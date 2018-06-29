@@ -3,7 +3,7 @@ function onSignIn(e) {
 
     const username = $("#username").val();
     const password = $("#password").val();
-    console.log(username)
+    
     axios.defaults.withCredentials = true;
     axios.post('/auth/signin', {
             username: username,
@@ -11,11 +11,11 @@ function onSignIn(e) {
         
     })
     .then(user => {
-    
+       
         window.location.replace('/');
     })
     .catch(err => {
-        console.log(err);
+       
         $("#error").html(err.response.data.err);
     })
 

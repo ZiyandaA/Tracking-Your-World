@@ -18,8 +18,6 @@ router.post('/signup', function(req, res, next) {
   var password = hashThePassword(req.body.password);
   try {
     authValidator.asAuth(req.body);
-  
-
     console.log(username, 'username', password, 'password');
     if (!username || password.length < 5) {
       throw new Error();
@@ -27,8 +25,8 @@ router.post('/signup', function(req, res, next) {
   }
   catch(err)
   {
+    
     res.status(500).send({error: 'Please check your username (needs to be more than 5 characters) and password.'})
-    return;
   }
 
   models.User.create({
@@ -36,9 +34,11 @@ router.post('/signup', function(req, res, next) {
     password: password,
   })
   .then(data => {
+   
     res.send(data);
   })
   .catch(err => {
+   
     res.status(500).send({error: err});
   })
 

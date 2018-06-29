@@ -28,7 +28,7 @@ function onCreateTracker() {
                 fillTrackers(data.trackers)  
                 })
                 .catch(err => {
-                    console.log(err, 'this is an error')
+                 
                 })
         })
     }
@@ -52,7 +52,7 @@ $(document).ready(() => {
 
 
 function addInputs(id, elem) {
-    console.log($(this).parent().attr("id"));
+   
     let trackerID = "";
     if(typeof(id) === "string") {
         trackerID = id;
@@ -60,7 +60,7 @@ function addInputs(id, elem) {
     else {
         trackerID = $(this).parent().parent().attr("id");
     }
-    console.log(id + " -- " + trackerID);
+    
     if ($("#" + trackerID + "> input").css("display") === "none") {
 
         $("#" + trackerID + "> input").css("display", "block");

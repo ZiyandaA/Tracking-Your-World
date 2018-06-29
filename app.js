@@ -27,7 +27,6 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(function(req, res, next) {
-  console.log(req.headers.origin, 'origin');
   res.header("Access-Control-Allow-Origin", req.headers.origin);
   res.header("Access-Control-Allow-Credentials", true);
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -64,7 +63,6 @@ app.use(function(err, req, res, next) {
   if (err instanceof HTTPError) {
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
-    console.log(err.message);
     res.status(err.status);
     res.json(err);
   }
@@ -73,7 +71,7 @@ app.use(function(err, req, res, next) {
     res.locals.error = req.app.get('env') === 'development' ? err : {};
 
     res.status(500);
-    console.log(err.message, 'this is message')
+
     res.send({err: err.message});
   }
 
