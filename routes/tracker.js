@@ -60,8 +60,8 @@ router.delete("/:id", (req, res, next) => {
 
     })
     .catch(err => {
-        //next(err);
         console.log("ERROR DELETE");
+        next(err);
     })
 })
 
@@ -72,10 +72,12 @@ router.patch("/:id", (req, res, next) => {
         .then(tracker => {
             tracker.name = trackerName;
             tracker.save((err, tracker) => {
-                if (err) throw new Error("some error");
+                if (err) throw new Error("error saving tracker");
                 res.send(tracker);
             })
-        })
+        }).catch(err => {
+            next(err);
+        });
 })
 
 

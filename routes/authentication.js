@@ -16,13 +16,21 @@ router.get('/signin', (req, res, next) => {
 router.post('/signup', function(req, res, next) {
   var username = req.body.username;
   var password = hashThePassword(req.body.password);
-  authValidator.asAuth(req.body);
-  console.log(req.body, 'this is the body')
+  try {
+    authValidator.asAuth(req.body);
+  
 
-  console.log(username, 'username', password, 'password');
-  if (!username || password.length < 5) {
-    throw new Error();
+    console.log(username, 'username', password, 'password');
+    if (!username || password.length < 5) {
+      throw new Error();
+    }
   }
+  catch(err)
+  {
+    res.status(500).send({error: 'Please check your username (needs to be more than 5 characters) and password.'})
+    return;
+  }
+
   models.User.create({
     username: username,
     password: password,
@@ -31,7 +39,7 @@ router.post('/signup', function(req, res, next) {
     res.send(data);
   })
   .catch(err => {
-    res.send({err: err});
+    res.status(500).send({error: err});
   })
 
 });
@@ -43,7 +51,7 @@ router.post('/signin', (req, res, next) => {
   models.User.findOne({'username': username})
     .then(user => {
       if (user && user.password == password) {
-        console.log(user, 'authorized user');
+  
         req.session.user = user;
         res.send(user);
       }
@@ -57,7 +65,7 @@ router.post('/signin', (req, res, next) => {
 })
 
 router.post('/logout', (req, res, next) => {
-  // console.log('something');
+
   if (req.session.user) {
     req.session.destroy(() => {
       res.send({destroyed: true})

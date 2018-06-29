@@ -11,12 +11,12 @@ function onSignIn(e) {
         
     })
     .then(user => {
-        console.log(user, 'we logged in');
+    
         window.location.replace('/');
     })
     .catch(err => {
         console.log(err);
-        $("#error").html("some error");
+        $("#error").html(err.response.data.err);
     })
 
 }

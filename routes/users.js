@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    console.log(req.query, 'this is params')
+ 
     var ObjectId = require('mongoose').Types.ObjectId;
     let user = await models.User.findById(req.params.id).lean().exec();
     let userTrackers = await models.Tracker.find({userID: user._id}).lean().exec();
@@ -24,7 +24,7 @@ router.get('/:id', async (req, res, next) => {
       let trackerTargets = await models.TrackerTarget.find({trackerID: userTrackers[i]._id});
       userTrackers[i] = Object.assign({}, userTrackers[i], {trackerTargets: trackerTargets})
     }
-    // console.log(userTrackers, 'this is userTrackers')
+    
     user.trackers = userTrackers;
     
 
@@ -45,7 +45,7 @@ router.delete('/', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
-  // console.log(req.body, 'this is body')console.log(req.body, 'this is body')
+
   User.create({
     username: req.body.username,
     password: req.body.password

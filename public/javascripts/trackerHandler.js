@@ -28,7 +28,7 @@ function onCreateTracker() {
                 fillTrackers(data.trackers)  
                 })
                 .catch(err => {
-                    console.log(err, 'this is error')
+                    console.log(err, 'this is an error')
                 })
         })
     }
@@ -131,7 +131,7 @@ function addTrackerTarget() {
 }
 
 function showTrackerTargets() {
-    console.log('im clicking')
+
     let trackerID = $(this).parent().parent().attr("id");
     let table = $("#" + trackerID + ">.tracker-target-table");
     if (table.css("display") === "none") {
@@ -157,7 +157,7 @@ function deleteTrackerTarget(id) {
 function fillTrackers(trackers) {
 
     trackers.forEach(elem => {
-        console.log(elem, 'this is tracker')
+        
         let id = elem._id;
         $('#trackers').append(`
         <div id=${id} class="tracker">

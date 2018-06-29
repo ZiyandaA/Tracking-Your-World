@@ -8,7 +8,7 @@ $(document).ready(() => {
             window.location.replace('/auth/signin');
         })
         .catch(err => {
-            console.log(err, 'this is error')
+            console.log(err, 'error logging out');
         })
     })
     

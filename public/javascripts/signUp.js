@@ -10,12 +10,12 @@ function onSignUp(e) {
         
     })
     .then(user => {
-        console.log(user, 'created user');
+       
         window.location.replace('/auth/signin');
     })
     .catch(err => {
         console.log(err);
-        $("#error").html("some error")
+        $("#error").html(err.response.data.error);
     })
 
 }
