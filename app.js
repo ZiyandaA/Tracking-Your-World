@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === "test") {
   mongoose.connect(db_host);
 }
 else {
-  db_host = "mongodb://localhost/mydb";
+  db_host = "mongodb://ziyanda:maxa2013@ds217921.mlab.com:17921/tracking-your-world-mlab-db";
   mongoose.connect(db_host);
 }
 

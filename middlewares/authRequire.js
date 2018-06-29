@@ -1,5 +1,5 @@
 function authRequire(req, res, next) {
-    console.log(req.session, 'this si the session')
+    console.log(req.session, 'this is the session')
     if(req.session.user) {
         next();
     }
