@@ -15,15 +15,10 @@ var session = require('express-session');
 var mongoose = require('mongoose');
 var cors = require('cors')
 var db_host;
-if (process.env.NODE_ENV === "test") {
-  db_host = "mongodb://localhost/test";
-  mongoose.connect(db_host);
-}
-else {
-  db_host = "mongodb://ziyanda:maxa2013@ds217921.mlab.com:17921/tracking-your-world-mlab-db";
-  mongoose.connect(db_host);
-}
 
+db_host = process.env.db_host;
+
+mongoose.connect(db_host);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,10 +35,13 @@ app.use(function(req, res, next) {
 });
 
 app.use(session({
-  secret: 'ziyanda',
+  secret: process.env.session_secret,
+
   saveUninitialized: true,
   resave: false
 }));
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
