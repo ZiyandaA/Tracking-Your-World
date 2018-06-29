@@ -40,7 +40,7 @@ function onCreateTracker() {
 $(document).ready(() => {
     $('#tracker-submit').click(onCreateTracker)
     axios.defaults.withCredentials = true;
-    axios.get('http://localhost:3000/find-me')
+    axios.get('/ind-me')
         .then(data => {
             return getTrackers(data.data._id)
         })
