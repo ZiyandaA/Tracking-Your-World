@@ -15,19 +15,20 @@ var session = require('express-session');
 var mongoose = require('mongoose');
 var cors = require('cors')
 var db_host;
+require('dotenv').load();
 
 db_host = process.env.db_host;
 if (process.env.NODE_ENV === 'test') {
   db_host = "mongodb://localhost/test";
 }
-
+db_host = "mongodb://localhost/test";
 mongoose.connect(db_host);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 //middleware
-
+console.log(process.env.session_secret, 'session_secret');
 app.use(logger('dev'));
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", req.headers.origin);

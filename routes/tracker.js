@@ -3,11 +3,14 @@ var router = express.Router();
 var models = require('../models');
 
 
-router.get('/', async function(req, res, next) {
+router.get('/', function(req, res, next) {
     models.Tracker.find()
         .exec()
         .then(data => {
             res.send(data);
+        })
+        .catch(err => {
+            next(err);
         })
 });
 
