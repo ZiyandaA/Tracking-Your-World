@@ -10,5 +10,4 @@ branches:
     - master
 
 env:
-  - session_secret=ziyanda
-  - db_host=mongodb://ziyanda:maxa2013@ds217921.mlab.com:17921/tracking-your-world-mlab-db
+  - session_secret=ziyanda db_host=mongodb://ziyanda:maxa2013@ds217921.mlab.com:17921/tracking-your-world-mlab-db
