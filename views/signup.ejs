@@ -12,15 +12,18 @@
 <body>
     <% include ./templates/header.ejs %>
     <div class="container">
-        <div class="box">
-            <input id="username" aria-label="username" type="text" placeholder="input username">
-            <input id="password" aria-label="password" placeholder="input password" type="password">
-            <button
-                id="signUpButton" aria-label="sign up" role="button"
-            >SignUp</button>
+        <div class="auth-container">
+            <div class="auth">
+                <input id="username" aria-label="username" type="text" placeholder="input username">
+                <input id="password" aria-label="password" placeholder="input password" type="password">
+                <button
+                class="generated-btn-styles-2"
+                    id="signUpButton" aria-label="sign up" role="button"
+                >SignUp</button>
+            </div>
+            <div id="error"></div>
+            
         </div>
-        <div id="error"></div>
-        
     </div>
     
 </body>

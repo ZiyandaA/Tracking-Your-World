@@ -65,6 +65,7 @@ function addInputs(id, elem) {
 
         $("#" + trackerID + "> input").css("display", "block");
         $("#" + trackerID + "> button").css("display", "block");
+        $("#" + trackerID + "> select").css("display", "block");
 
         if(elem) {
             $("#" + trackerID + ">.name-input").val(elem.name);
@@ -75,6 +76,7 @@ function addInputs(id, elem) {
     }
     else {
         $("#" + trackerID + "> input").css("display", "none");
+        $("#" + trackerID + "> select").css("display", "none");
         $("#" + trackerID + "> .add-child").css("display", "none");
 
         $("#" + trackerID + ">.name-input").val("");
@@ -156,6 +158,21 @@ function deleteTrackerTarget(id) {
 
 function fillTrackers(trackers) {
 
+    var UNIT_TYPES = [
+        'ml',
+        'cal',
+        'mg',
+        'gal',
+        'oz',
+        'oz',
+        'oz',
+        'oz',
+    ]
+
+    var options = UNIT_TYPES.map(function(name, i) {
+        return `<option>${name}</option>`
+    })
+
     trackers.forEach(elem => {
         
         let id = elem._id;
@@ -170,9 +187,12 @@ function fillTrackers(trackers) {
                 <button class="delete crud-button">x</button>
             </div>
             
-            <input class="name-input" style="display:none" placeholder="name" type="text">
-            <input class="target-input" style="display:none" placeholder="target" type="text">
-            <input class="value-input" style="display:none" placeholder="value" type="text">
+            <input class="name-input" style="display:none" placeholder="Name" type="text">
+            <input class="target-input" style="display:none" placeholder="Type" type="text">
+            <input class="value-input" style="display:none" placeholder="Measurement" type="text">
+            <select style="display:none">
+                ${options}
+            </select>
             <input class="tracker-target-input" style="display:none" type="hidden">
             <button class="add-child confirm" style="display:none">confirm</button>
             <table class="tracker-target-table">
@@ -186,7 +206,13 @@ function fillTrackers(trackers) {
             </table>
         </div>
         `);
+
+        function autofillMeasurement(ev) {
+            $('.value-input').val(ev.currentTarget.value)
+        }
+
         console.log($("#" + id + ">.add-child"), 'tracker name')
+        $("#" + id + " select").change(autofillMeasurement);
         $("#" + id + "> .name-container > .tracker-name").click(showTrackerTargets);
         $("#" + id + "> .name-container > .add-inputs").click(addInputs);
         $("#" + id + ">.add-child").click(addTrackerTarget);

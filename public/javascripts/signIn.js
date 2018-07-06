@@ -1,5 +1,5 @@
 function onSignIn(e) {
-    alert( "Handler for .submit() called." );
+    //alert( "Handler for .submit() called." );
 
     const username = $("#username").val();
     const password = $("#password").val();
