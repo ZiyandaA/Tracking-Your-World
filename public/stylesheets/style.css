@@ -30,6 +30,14 @@ header {
   /* flex-wrap: nowrap; */
 }
 
+header:after { 
+  content: "."; 
+  visibility: hidden; 
+  display: block; 
+  height: 0; 
+  clear: both;
+}
+
 .app-name {
   padding-left: 12%;
   text-align: center ;
@@ -155,6 +163,7 @@ header {
   border: 1px solid black;
   border-radius: 3px;
   color: black;
+  vertical-align: top;
 }
 
 .feature-image {
@@ -167,16 +176,19 @@ header {
 }
 
 .feature-image img {
-  width: 100;
+  width: 100%;
 
 }
 
 .feature-heading {
   margin: 0;
   margin-bottom: 15px;
-  font-size: 26px;
+  font-size: 21px;
 }
 
+.feature-desc li {
+  max-width: 250px;
+}
 
 
 
@@ -255,16 +267,22 @@ header {
  /* display:inline block; */
 }
 
-#login-container > a:link, #login-container > a:visited, #logout-container > button {
-    /* align-content:  right; */
+.auth-btn-styles {
+
     background-color: #1461bf;
     color: white;
-    padding: 14px 25px;
+    padding: 10px 20px;
+    font-size: 15px;
     text-align: right;
     text-decoration: none;
     display: inline-block;
-    /* float:right; */
- } 
+    border-radius: 3px;
+
+ }
+ 
+#login-container .auth-btn-styles {
+  margin-right: 10px;
+}
 
 .tracker-name {
   cursor: pointer;
@@ -275,8 +293,7 @@ header {
   
 }
 
-#information {
-  text-align: center;
+#welcome-message {
   font-size: 35px;
   padding-top: 15px;
 }
@@ -332,7 +349,8 @@ th {
     font-size: 35px;
   }
 
-  #information > span {
+  #welcome-message {
+    text-align: center;
     font-size: 55px !important;
   }
 
@@ -351,9 +369,32 @@ th {
   #password, #username {
     height: 50px;
   }
+  
+  .feature {
+    display: block;
+    max-width: none;
+  }
+
+  .feature-image {
+    margin-bottom: 25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .feature-heading {
+    font-size: 35px;
+    margin-left: 20px;
+  }
+
+  .feature-desc li {
+    max-width: none;
+  }
 }
 
 @media screen and (max-width: 740px) and (min-width: 300px) {
+
+
+
   .app-name {
     font-size: 21px;
     padding-top: 20px;
@@ -361,7 +402,7 @@ th {
     text-align: left;
     display: block;
   }
-  #login-container > a:link, #login-container > a:visited, #logout-container > button {
+  .auth-btn-styles {
     /* align-content:  right; */
     background-color: #1461bf;
     color: white;
@@ -395,6 +436,18 @@ th {
     background-color: rgba(20, 97, 191, 0.8);
     padding: 20px;
 }
+
+.app-name {
+  padding-left: 0;
+  text-align: inherit;
+  font-size: 30px;
+  padding-bottom: 0;
+}
+
+#login-container, #logout-container {
+  padding-bottom: 15px;
+}
+
 }
 
 }

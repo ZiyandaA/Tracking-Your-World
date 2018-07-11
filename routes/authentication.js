@@ -34,7 +34,8 @@ router.post('/signup', function(req, res, next) {
     password: password,
   })
   .then(data => {
-   
+
+    req.session.user = data;
     res.send(data);
   })
   .catch(err => {
