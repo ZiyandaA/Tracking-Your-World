@@ -235,8 +235,8 @@ function fillTrackers(trackers) {
                          ${formatDate(new Date(elem.date))}
                         </td>
                         <td>
-                            <button onclick='addInputs("${id}", ${JSON.stringify(elem)})'>edit</button>
-                            <button onclick='deleteTrackerTarget(\"${elem._id}\")'>delete</button>
+                            <button class="edit" onclick='addInputs("${id}", ${JSON.stringify(elem)})'>edit</button>
+                            <button class="edit" onclick='deleteTrackerTarget(\"${elem._id}\")'>delete</button>
                         </td>
                         
                     </tr>

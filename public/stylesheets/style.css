@@ -229,9 +229,15 @@ header:after {
   padding-left: 5px;
   margin-bottom: 7px;
 }
-
+.edit {
+  background-color: white;
+}
 .container .auth button {
   margin-top: 10px;
+}
+
+#tracker-submit {
+  background-color: white;
 }
 
 .tracker-target-table {
@@ -250,6 +256,11 @@ header:after {
 
 #trackers button.confirm {
   color: black;
+  background-color: white;
+}
+
+select {
+  background-color: white;
 }
 
 #login-container {
@@ -388,6 +399,12 @@ th {
 
   .feature-desc li {
     max-width: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .feature {
+    min-height: 570px;
   }
 }
 
