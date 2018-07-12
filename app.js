@@ -18,10 +18,10 @@ var db_host;
 require('dotenv').load();
 
 db_host = process.env.db_host;
-if (process.env.NODE_ENV === 'test') {
-  db_host = "mongodb://localhost/test";
-}
-db_host = "mongodb://localhost/test";
+// if (process.env.NODE_ENV === 'test') {
+//   db_host = "mongodb://localhost/test";
+// }
+// db_host = "mongodb://localhost/test";
 mongoose.connect(db_host);
 
 // view engine setup
