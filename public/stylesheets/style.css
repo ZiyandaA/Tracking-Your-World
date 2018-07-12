@@ -260,6 +260,10 @@ header:after {
   padding-right: 10px;
 }
 
+.trackers-header {
+  margin-top: 40px;
+}
+
 #trackers button {
   font-size: 18px;
 }
