@@ -47,6 +47,14 @@ header:after {
   font-weight: bold;
 }
 
+.app-name a:link,
+.app-name a:visited,
+.app-name a:hover,
+.app-name a:active {
+  color: #333;
+  text-decoration: none;
+}
+
 .hero {
   position: relative;
   z-index: 1;
@@ -137,7 +145,7 @@ header:after {
 
 #landing-container .blurb {
   padding-bottom: 30px;
-  max-width: 480px;
+  font-size: 35px;
 }
 
 .features {
@@ -169,8 +177,8 @@ header:after {
 .feature-image {
   margin: 0 auto 15px auto;
   text-align: center;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   overflow: hidden;
   border-radius: 50%;
 }
@@ -183,7 +191,8 @@ header:after {
 .feature-heading {
   margin: 0;
   margin-bottom: 15px;
-  font-size: 21px;
+  font-size: 28px;
+  text-align: center;
 }
 
 .feature-desc li {
@@ -360,6 +369,10 @@ th {
     font-size: 35px;
   }
 
+  .feature-desc li {
+    font-size: 23px;
+  }
+
   #welcome-message {
     text-align: center;
     font-size: 55px !important;
@@ -383,7 +396,9 @@ th {
   
   .feature {
     display: block;
-    max-width: none;
+    /*max-width: none;*/
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .feature-image {
@@ -404,7 +419,7 @@ th {
 
 @media screen and (min-width: 1024px) {
   .feature {
-    min-height: 570px;
+    min-height: 450px;
   }
 }
 
