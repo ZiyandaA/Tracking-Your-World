@@ -164,9 +164,7 @@ function fillTrackers(trackers) {
         'mg',
         'gal',
         'oz',
-        'oz',
-        'oz',
-        'oz',
+
     ]
 
     var options = UNIT_TYPES.map(function(name, i) {
