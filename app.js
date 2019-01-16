@@ -15,13 +15,14 @@ var session = require('express-session');
 var mongoose = require('mongoose');
 var cors = require('cors')
 var db_host;
+var favicon = require('serve-favicon');
 require('dotenv').load();
 
 db_host = process.env.db_host;
 // if (process.env.NODE_ENV === 'test') {
 //   db_host = "mongodb://localhost/test";
 // }
-// db_host = "mongodb://localhost/test";
+db_host = "mongodb://localhost/test";
 mongoose.connect(db_host);
 
 // view engine setup
@@ -38,18 +39,19 @@ app.use(function(req, res, next) {
 });
 
 app.use(session({
-  secret: process.env.session_secret,
+  secret: "process.env.session_secret",
 
   saveUninitialized: true,
   resave: false
 }));
+
+app.use(favicon(path.join(__dirname, 'public/images','favicon.ico')));
 
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);

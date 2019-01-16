@@ -1,6 +1,6 @@
 function onSignIn(e) {
     //alert( "Handler for .submit() called." );
-
+    console.log("DEBBUGIING1")
     const username = $("#username").val();
     const password = $("#password").val();
     
@@ -11,11 +11,12 @@ function onSignIn(e) {
         
     })
     .then(user => {
-       
+       console.log("DEBBUGIING2")
         window.location.replace('/');
     })
     .catch(err => {
-       
+        console.log("DEBBUGIING3")
+        // $("#error").html(err.response);
         $("#error").html(err.response.data.err);
     })
 

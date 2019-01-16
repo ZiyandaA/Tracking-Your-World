@@ -39,16 +39,85 @@ function onCreateTracker() {
 
 $(document).ready(() => {
     $('#tracker-submit').click(onCreateTracker)
+    // if ($("#username").val() != null && $("#username").val() != undefined && $("#password").val() != null && $("#password").val() != undefined) {
+                axios.interceptors.request.use((config) => {
+                    // Do something before request is sent
+                    return config;
+                  }, (error) => {
+                    // Do something with request error
+                    return Promise.reject(error);
+                  });
+                
+                // Add a response interceptor
+                axios.interceptors.response.use((response) => {
+                    // Do something with response data
+                    return response;
+                  }, (error) => {
+                    // Do something with response error
+                    return Promise.reject(error);
+                  });
     axios.defaults.withCredentials = true;
-    axios.get('/find-me')
+    console.log(document.cookie)
+    if (document.cookie=="loggedin=true"){
+        axios.get('/find-me')
         .then(data => {
+            console.log("someerror2")
             return getTrackers(data.data._id)
         })
         .then(data => {
+
+            console.log("someerror")
+
             fillTrackers(data.trackers);
+           
+        }) .catch(err => {
+
+            console.log(err)
+
+            //hide the trackers
+
+            //show landing page
+
+            $('#trackers-container').css('display', 'none')
+
+       
+            $("#logout-container").css("display", "none");
             
+ //           if (window.location.pathname !== "/auth/signin" && window.location.pathname !== "/auth/signup")
+                //window.location.replace('/auth/signin');
         })
+    }
+//     axios.get('/find-me')
+//         .then(data => {
+//             console.log("someerror2")
+//             return getTrackers(data.data._id)
+//         })
+//         .then(data => {
+
+//             console.log("someerror")
+
+//             fillTrackers(data.trackers);
+           
+//         }) .catch(err => {
+
+//             console.log(err)
+
+//             //hide the trackers
+
+//             //show landing page
+
+//             $('#trackers-container').css('display', 'none')
+
+       
+//             $("#logout-container").css("display", "none");
+            
+//  //           if (window.location.pathname !== "/auth/signin" && window.location.pathname !== "/auth/signup")
+//                 //window.location.replace('/auth/signin');
+//         })
+    
+    
 });
+
 
 
 function addInputs(id, elem) {

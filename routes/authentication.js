@@ -54,6 +54,7 @@ router.post('/signin', (req, res, next) => {
       if (user && user.password == password) {
   
         req.session.user = user;
+        res.cookie("loggedin","true")
         res.send(user);
       }
       else {
@@ -69,6 +70,7 @@ router.post('/logout', (req, res, next) => {
 
   if (req.session.user) {
     req.session.destroy(() => {
+      res.cookie("loggedin","false")
       res.send({destroyed: true})
     })
   }
