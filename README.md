@@ -6,6 +6,7 @@ Test account
 Username: test1
 Password:12345
 
+
 **Screen Shot** 
 
 **Front page** 
@@ -98,5 +99,5 @@ Node, Express, JQuery, JavaScript, MongoDB, Mongoose, Mocha, Chai, REST APIs
 	]
 }
 
-/put -> Updates tracker target
+put -> Updates tracker target
 delete -> delete tracker
