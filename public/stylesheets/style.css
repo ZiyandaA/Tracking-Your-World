@@ -4,7 +4,11 @@
 .tracker-target {
   padding-left: 20px;
 }
-
+ .app-desciption{
+   color: #16418f;
+   font-family: 'Thasadith', sans-serif;
+   font-size: 25px;
+ }
 body {
   width: 100%;
   margin: 0;
@@ -46,7 +50,7 @@ header:after {
   padding-left: 12%;
   text-align: center ;
   font-size: 35px;
-  color: #333;
+  color:#16418f;
   display:inline-block;
   font-weight: bold;
 }
@@ -55,7 +59,7 @@ header:after {
 .app-name a:visited,
 .app-name a:hover,
 .app-name a:active {
-  color: #333;
+  color:#16418f;
   text-decoration: none;
 }
 
@@ -85,7 +89,7 @@ header:after {
 
 #landing-container {
     position: relative;
-    background-image: url('/images/banner_image_rotated.jpg');
+    /* background-image: url('/images/banner_image_rotated.jpg'); */
   background-size: cover;
   background-position: center -315px;  
 }
@@ -162,11 +166,15 @@ header:after {
 #landing-container .tagline {
   font-size: 50px;
   padding-bottom: 30px;
+  color: #afadd0;
+  font-family: 'Thasadith', sans-serif;
 }
 
 #landing-container .blurb {
-  padding-bottom: 30px;
-  font-size: 35px;
+  padding-bottom: 20px;
+  font-size: 25px;
+  color:#afadd0;
+  font-family: 'Thasadith', sans-serif;
 }
 
 .features {
@@ -179,7 +187,7 @@ header:after {
   margin-bottom: 40px;
   margin-top: 0;
   font-size: 37px;
-  color: #222;
+  color: #16418f;
 }
 
 .feature {
@@ -219,11 +227,13 @@ header:after {
   margin-bottom: 15px;
   font-size: 28px;
   text-align: center;
+  color: #16418f
 }
 
 .feature-desc li {
   max-width: 250px;
   font-size: 23px;
+  color: #16418f;
 }
 
 
@@ -288,6 +298,7 @@ header:after {
 
 .trackers-header {
   margin-top: 40px;
+  color: #afadd0  
 }
 
 #trackers button {
@@ -319,14 +330,14 @@ select {
 }
 
 #signup-btn {
-  font-size: 25px;
+  font-size: 20px;
   border: none;
   box-shadow: 0px 0px 25px 0px rgba(50, 50, 50, 0.25);
 }
 
 .auth-btn-styles {
 
-    background-color:#099eb8 !important;
+    background-color:#16418f !important;
     color: white;
     padding: 10px 20px;
     font-size: 15px;
@@ -334,11 +345,14 @@ select {
     text-decoration: none;
     display: inline-block;
     border-radius: 3px;
+    margin-bottom: 15px
 
  }
  
 #login-container .auth-btn-styles {
   margin-right: 10px;
+  margin-bottom: 15px;
+  /* color: #afadd0 */
 }
 
 .tracker-name {
@@ -346,13 +360,14 @@ select {
 }
 
 .tracker-target-table {
-  display: none;
+  /* display: none; */
   
 }
 
 #welcome-message {
   font-size: 35px;
   padding-top: 15px;
+  color: #afadd0  
 }
 
 th {
